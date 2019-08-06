@@ -104,13 +104,5 @@ export default {
         margin-bottom: 1rem;
       }
     }
-    .home-footer {
-      width: 100%;
-      padding: .2rem 0;
-      background: #fff;
-      /* display: flex;
-      align-items: center;
-      justify-content: space-between; */
-    }
   }
 </style>
