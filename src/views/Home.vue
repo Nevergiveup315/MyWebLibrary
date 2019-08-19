@@ -4,6 +4,57 @@
       <v-header :title="homeTitle"/>
     </div>
     <div class="home-content">
+      <div class="home-slide">
+          <cube-slide ref="slide" :data="swipsItems" :interval="5000" :speed="600" @change="changePage">
+            <cube-slide-item v-for="(item, index) in swipsItems" :key="index" @click.native="clickHandler(item, index)">
+              <a :href="item.url">
+                <img :src="item.image">
+              </a>
+            </cube-slide-item>
+          </cube-slide>
+      </div>
+      <div class="guide-bar">
+          <a href="">
+            <img src="../assets/images/reba1.jpg" alt="">
+            <span>艾尔超市</span>
+          </a>
+          <a href="">
+            <img src="../assets/images/reba2.jpg" alt="">
+            <span>数码电器</span>
+          </a>
+          <a href="">
+            <img src="../assets/images/reba3.jpg" alt="">
+            <span>艾尔服饰</span>
+          </a>
+          <a href="">
+            <img src="../assets/images/reba4.jpg" alt="">
+            <span>艾尔生鲜</span>
+          </a>
+          <a href="">
+            <img src="../assets/images/reba5.jpg" alt="">
+            <span>艾尔到家</span>
+          </a>
+          <a href="">
+            <img src="../assets/images/hanyun8.jpg" alt="">
+            <span>充值缴费</span>
+          </a>
+          <a href="">
+            <img src="../assets/images/meinv6.jpg" alt="">
+            <span>9.9元拼</span>
+          </a>
+          <a href="">
+           <img src="../assets/images/meinv7.jpg" alt="">
+           <span>领券</span>
+          </a>
+          <a href="">
+           <img src="../assets/images/meinv9.jpg" alt="">
+           <span>艾尔手机</span>
+          </a>
+          <a href="">
+           <img src="../assets/images/meinv10.jpg" alt="">
+           <span>plus会员</span>
+          </a>
+      </div>
       <cube-button @click="showPicker">Picker</cube-button>
       <h3 class="home-title">致我们伟大的祖国</h3>
       <p class="home-content">黎明驱走了黑暗，日出带来了光芒，祖国的光辉好似阳光，照亮了我们的前程，指明了我们前进的方向，带领全国各族人民从贫穷走向富裕，从胜利走向辉煌。</p>
@@ -34,12 +85,39 @@ export default {
   components: {
     'v-tarBar': TabBar,
     'v-header': Header
+
   },
   data () {
     return {
       column1: [{ text: '剧毒', value: '剧毒' }, { text: '蚂蚁', value: '蚂蚁' },
         { text: '幽鬼', value: '幽鬼' }, { text: '禽兽', value: '禽兽' }, { text: '姓名', value: 'killMan' }],
-      homeTitle: '不忘初心，牢记使命！'
+      homeTitle: '上艾尔，就购了！',
+      swipsItems: [
+        {
+          url: 'http://www.baidu.com/',
+          image: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3738216537,93895295&fm=26&gp=0.jpg'
+        },
+        {
+          url: 'http://www.jd.com/',
+          image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565082125874&di=d4b8c391003c8eb88f524e1838242b5f&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201405%2F24%2F20140524124808_AKyGQ.thumb.600_0.jpeg'
+        },
+        {
+          url: 'http://www.http://xtbgyy.digitalgd.com.cn/jyhoa/mobile/',
+          image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565082125873&di=45fd62e5b4e3826918d3a39abb5a2150&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F016dd157b0170a0000018c1bb20fdc.jpg'
+        },
+        {
+          url: 'http://http://xtbgyy.digitalgd.com.cn/OA/mobile/',
+          image: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3157820581,2374401127&fm=26&gp=0.jpg'
+        },
+        {
+          url: 'http://www.fanyi.baidu.com/',
+          image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565082125868&di=a7c05edb7ae11ff5f1c2e0c377ba5e9d&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01e839554274300000019ae9e9b53f.jpg'
+        },
+        {
+          url: 'http://www.taobao.com/',
+          image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565082169822&di=128e33a475b1e831bf5e826e5bec298e&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2791156650%2C2460677576%26fm%3D214%26gp%3D0.jpg'
+        }
+      ]
     }
   },
   methods: {
@@ -78,14 +156,6 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: rgb(215, 217, 218);
-    .home-header {
-      height: 2.4rem;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-    }
     .home-content {
       flex: 1;
       overflow-x: hidden;
@@ -103,6 +173,31 @@ export default {
       .home-content:last-child{
         margin-bottom: 1rem;
       }
+    }
+    .guide-bar{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      a {
+        width: 20%;
+        margin: .8rem 0;
+        text-align: center;
+        font-size: .6rem;
+        color: black;
+        img {
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          margin-bottom: .4rem;
+        }
+        span {
+          display: block;
+        }
+      }
+    }
+    .cube-slide-item > a > img {
+      width: 100%;
+      height: 10rem;
     }
   }
 </style>

@@ -16,7 +16,7 @@ export default {
       tabList: [
         { name: '首页', routerName: 'home', icon: 'cubeic-home' },
         { name: '我的', routerName: 'person', icon: 'cubeic-person' },
-        { name: '超级会员', routerName: 'vip', icon: 'cubeic-good' },
+        { name: '超级会员', routerName: 'vip', icon: 'cubeic-vip' },
         { name: '购物车', routerName: 'shopcar', icon: 'cubeic-mall' }
       ],
       activeIndex: 0

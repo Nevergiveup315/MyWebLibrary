@@ -32,6 +32,11 @@ export default {
     .header-wrap {
       display: flex;
       justify-content: space-around;
+      align-items: center;
+      height: 2.4rem;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid rgb(148, 146, 146);
       .back-router {
         width: 2rem;
         text-align: center;
