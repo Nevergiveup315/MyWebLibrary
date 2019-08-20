@@ -1,3 +1,7 @@
+/**
+  * 底部栏切换页面
+ */
+
 <template>
     <div class="tab-bar-wrap">
       <ul class="tab-list-wrap">

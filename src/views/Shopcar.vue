@@ -22,7 +22,8 @@ export default {
     return {
       homeTitle: '购物车'
     }
-  }
+  },
+  methods: {}
 }
 </script>
 

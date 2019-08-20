@@ -14,43 +14,43 @@
           </cube-slide>
       </div>
       <div class="guide-bar">
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/reba1.jpg" alt="">
             <span>艾尔超市</span>
           </a>
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/reba2.jpg" alt="">
             <span>数码电器</span>
           </a>
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/reba3.jpg" alt="">
             <span>艾尔服饰</span>
           </a>
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/reba4.jpg" alt="">
             <span>艾尔生鲜</span>
           </a>
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/reba5.jpg" alt="">
             <span>艾尔到家</span>
           </a>
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/hanyun8.jpg" alt="">
             <span>充值缴费</span>
           </a>
-          <a href="">
+          <a href="javascript::">
             <img src="../assets/images/meinv6.jpg" alt="">
             <span>9.9元拼</span>
           </a>
-          <a href="">
+          <a href="javascript::">
            <img src="../assets/images/meinv7.jpg" alt="">
            <span>领券</span>
           </a>
-          <a href="">
+          <a href="javascript::">
            <img src="../assets/images/meinv9.jpg" alt="">
            <span>艾尔手机</span>
           </a>
-          <a href="">
+          <a href="javascript::">
            <img src="../assets/images/meinv10.jpg" alt="">
            <span>plus会员</span>
           </a>
@@ -67,10 +67,10 @@
 
       <p class="home-content">无论你的家乡在哪里?无论你最想去到哪个地方?祖国到处都是“诗和远方”。我们牢记着祖国的风风雨雨，也奋力创造更美好的生活!</p>
     </div>
+    <v-loading :isLoading='loading'/>
     <div class="home-footer">
       <v-tarBar/>
     </div>
-
   </div>
 </template>
 
@@ -80,11 +80,13 @@
 //   { text: '幽鬼', value: '幽鬼' }, { text: '禽兽', value: '禽兽' }]
 import TabBar from '@/components/tabBar.vue'
 import Header from '@/components/header.vue'
+import Loading from '@/components/loading.vue'
 export default {
   name: 'home',
   components: {
     'v-tarBar': TabBar,
-    'v-header': Header
+    'v-header': Header,
+    'v-loading': Loading
 
   },
   data () {
@@ -117,8 +119,16 @@ export default {
           url: 'http://www.taobao.com/',
           image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565082169822&di=128e33a475b1e831bf5e826e5bec298e&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2791156650%2C2460677576%26fm%3D214%26gp%3D0.jpg'
         }
-      ]
+      ],
+      loading: false
     }
+  },
+  mounted () {
+    let self = this
+    self.loading = true
+    setTimeout(function () {
+      self.loading = false
+    }, 2000)
   },
   methods: {
     showPicker () {
